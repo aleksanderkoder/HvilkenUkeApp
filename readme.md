@@ -1,1 +1,1 @@
-Gjør npm install node
+Gjør npm install
