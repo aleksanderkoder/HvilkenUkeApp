@@ -21,14 +21,20 @@ export default {
       this.message = this.getWeek(); 
     },
     getWeek () {
-      Date.prototype.getWeek = function() {
-        var onejan = new Date(this.getFullYear(),0,1);
-        return Math.ceil((((this - onejan) / 86400000) + onejan.getDay()+1)/7);
-      }
+      // Date.prototype.getWeek = function() {
+      //   var onejan = new Date(this.getFullYear(),0,1);
+      //   return Math.ceil((((this - onejan) / 86400000) + onejan.getDay()+1)/7);
+      // }
 
-      var today = new Date();
-      var weekNumber = today.getWeek();
-      return weekNumber - 1; 
+      // var today = new Date();
+      // var weekNumber = today.getWeek();
+      // return weekNumber - 1; 
+      var now = new Date();
+      var start = new Date(now.getFullYear(), 0, 0);
+      var diff = now - start;
+      var oneDay = 1000 * 60 * 60 * 24;
+      var day = Math.floor(diff / oneDay);
+      return parseInt((day + 3) / 7); 
     },
     getDate () {
       let date = new Date();
